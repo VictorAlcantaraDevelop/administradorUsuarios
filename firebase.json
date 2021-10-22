@@ -1,0 +1,16 @@
+{
+  "hosting": {
+    "public": "dist/adm-usuarios",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
