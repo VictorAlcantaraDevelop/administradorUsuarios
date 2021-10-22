@@ -1,0 +1,79 @@
+mat-toolbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: montserrat;
+    -webkit-box-shadow: 3px 3px 4px -3px #000000; 
+box-shadow: 3px 3px 4px -3px #000000;
+}
+
+
+h1 {
+    font-family: montserrat;
+}
+
+.mat-elevation-z1 {
+  background-color: rgb(238, 238, 238);
+  padding: 1.25rem;
+  width: 100%;
+  margin-top:2.375rem;
+}
+
+th {
+  color: black;
+  font-family: montserrat;
+  font-size: 1rem;
+  text-align: center;
+  width: 6.25rem;
+  margin-top:5px;
+}
+
+td {
+  color: black;
+  font-family: montserrat;
+  font-size: 0.875rem;
+
+  background-color: rgb(199, 199, 199);
+  padding: 1.25rem;
+  
+  width: 6.25rem;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.mat-button {
+  text-align: center;
+  margin-left: 0.625rem;
+  margin-top: 1.25rem;
+  font-family: montserrat;
+}
+
+.paginador {
+  margin-left: 0.625rem;
+  text-align: center;
+}
+
+mat-row {
+  margin-top: 1.25rem;
+}
+
+.row-button {
+  padding: 0.625rem;
+  width: 0.125rem;
+}
+
+
+.icon-title {
+    font-size: 20px;
+   
+    
+}
+
+.avatar-image {
+    width:50px;
+    height:50px;
+    border-radius: 50%;
+    padding:10px;
+}

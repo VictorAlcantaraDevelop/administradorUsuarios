@@ -1,0 +1,45 @@
+<main class="container-login">
+  <img src="./../../../../../assets/images/undraw_secure_login_pdn4.svg" class="login-img style ">
+  <div class="login-form">
+    <h1>INICIAR SESIÓN</h1>
+    <mat-card>
+      <form
+        class="forma"
+        [formGroup]="loginForm"
+        (ngSubmit)="iniciarSesion(loginForm.value)"
+      >
+        <mat-label>Correo Electronico</mat-label>
+        <mat-form-field>
+          <input
+          matInput
+            class="entrada"
+            type="text"
+            formControlName="email"
+            requiered
+            />
+            <span class="form-text text-danger" *ngIf ="loginForm.controls.email.errors">
+              Asegurese de escribir el correo en formato correcto</span>
+        </mat-form-field>
+        <mat-label>Password</mat-label>
+        <mat-form-field>
+          <input
+          matInput
+            class="entrada"
+            type="password"
+            formControlName="password"
+            requiered
+          />
+        </mat-form-field>
+        <button
+          class="login-button"
+          type="submit"
+          mat-flat-button
+          color="primary"
+          
+        >
+          INICIAR SESIÓN
+        </button>
+      </form>
+    </mat-card>
+  </div>
+</main>

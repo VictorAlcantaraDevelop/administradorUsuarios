@@ -1,0 +1,49 @@
+.container-login {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  height: 100vh;
+  background-color: rgb(252, 252, 252);
+}
+
+.login-img {
+  width: 400px;
+  height: 400px;
+  margin-right: 130px;
+}
+
+h1 {
+  text-align: center;
+  font-family: montserrat;
+  font-weight: bold;
+  margin-bottom: 35px;
+}
+
+.mat-card {
+  background-color: white;
+  color: rgb(51, 51, 51);
+  font-family: montserrat;
+}
+
+.forma {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.mat-form-field {
+  width: 400px;
+}
+
+.login-button {
+  font-family: montserrat;
+}
+
+.entrada {
+  background-color: rgb(230, 230, 230);
+  height: 40px;
+  border-radius: 2px;
+  color: black;
+}

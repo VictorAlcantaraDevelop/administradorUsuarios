@@ -1,0 +1,64 @@
+<p>
+  <mat-toolbar>
+    <h1 class="title-main">Administrador de usuarios</h1>
+  </mat-toolbar>
+</p>
+
+  <div class="main-image_avatar">
+
+    <img
+    class="avatar-image"
+    src="{{ detalleUsuarioData.data.avatar }}"
+    alt="imagen avatar"
+    /> 
+  </div>
+  <p>{{ detalleUsuarioData.data.first_name }} {{detalleUsuarioData.data.last_name}} </p>
+  <hr />
+
+ <mat-grid-list cols="2" rowHeight="500px">
+<mat-grid-tile>
+  <mat-card>
+   
+    <h3> <mat-icon> person_pin</mat-icon>Información Personal</h3>
+    <form class="forma">
+      <mat-form-field>
+        <input  matInput  type="text" class="info-input" value="{{detalleUsuarioData.data.id}}"/>
+      </mat-form-field>
+      <mat-form-field>
+        <input  matInput  type="text" class="info-input" value="{{detalleUsuarioData.data.first_name}}"/>
+      </mat-form-field>
+      <mat-form-field>
+        <input  matInput  type="text" class="info-input" value="{{detalleUsuarioData.data.last_name}}"/>
+      </mat-form-field>
+      <mat-form-field>
+        <input  matInput  type="text" class="info-input" value="{{detalleUsuarioData.data.email}}"/>
+      </mat-form-field>
+    </form>
+    
+  </mat-card>
+</mat-grid-tile>
+
+<mat-grid-tile>
+<mat-card class="mat-card-post">
+  <h3> <mat-icon>edit</mat-icon>Entradas Disponibles</h3>
+  <table style="background-color:rgb(255, 255, 255); border-color:rgb(0, 0, 0); overflow:auto;">
+   
+    <tr>
+      <th class="table-title">Detalle de las entradas</th>
+    </tr>
+  
+  <tbody>
+    <tr *ngFor="let item of postData">
+      <td>
+        {{ item.title }}
+      </td>
+      <td class="td-body">
+        {{ item.body }}
+      </td>
+    </tr>
+  </tbody>
+  </table>
+</mat-card>
+  
+</mat-grid-tile>
+</mat-grid-list>
