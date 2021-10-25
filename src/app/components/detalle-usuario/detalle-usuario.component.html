@@ -1,64 +1,69 @@
-<p>
-  <mat-toolbar>
-    <h1 class="title-main">Administrador de usuarios</h1>
-  </mat-toolbar>
-</p>
+<mat-toolbar class="page-header">
+  <h1 class="title-main">Administrador de usuarios</h1>
+  <div class="page-header__user">
+    <mat-icon>arrow_back</mat-icon>
+    <a class="back-home" style="font-size:12px; color: white" routerLink="/home">Regresar al Home</a>
+    <img class="avatar-image" src="{{ detalleUsuarioData.data.avatar }}" alt="imagen avatar" />
+    <p> {{ detalleUsuarioData.data.first_name }} {{detalleUsuarioData.data.last_name}} </p>
 
-  <div class="main-image_avatar">
-
-    <img
-    class="avatar-image"
-    src="{{ detalleUsuarioData.data.avatar }}"
-    alt="imagen avatar"
-    /> 
   </div>
-  <p>{{ detalleUsuarioData.data.first_name }} {{detalleUsuarioData.data.last_name}} </p>
-  <hr />
+</mat-toolbar>
 
- <mat-grid-list cols="2" rowHeight="500px">
-<mat-grid-tile>
-  <mat-card>
-   
-    <h3> <mat-icon> person_pin</mat-icon>Información Personal</h3>
-    <form class="forma">
-      <mat-form-field>
-        <input  matInput  type="text" class="info-input" value="{{detalleUsuarioData.data.id}}"/>
-      </mat-form-field>
-      <mat-form-field>
-        <input  matInput  type="text" class="info-input" value="{{detalleUsuarioData.data.first_name}}"/>
-      </mat-form-field>
-      <mat-form-field>
-        <input  matInput  type="text" class="info-input" value="{{detalleUsuarioData.data.last_name}}"/>
-      </mat-form-field>
-      <mat-form-field>
-        <input  matInput  type="text" class="info-input" value="{{detalleUsuarioData.data.email}}"/>
-      </mat-form-field>
-    </form>
-    
+<main>
+  <mat-card class=card-insight>
+    <div class="card-info">
+      <img class="avatar-image-resize" src="{{ detalleUsuarioData.data.avatar }}" alt="imagen avatar" />
+      <h3>
+        <mat-icon> person_pin</mat-icon>
+        Información Personal
+      </h3>
+    </div>
+    <div class=card-form>
+      <form class="forma">
+        <mat-form-field class="mat-form-field" style=background-color:gray>
+          <input matInput type="text" class="info-input" style="color:rgb(189, 189, 189)"
+            value="{{detalleUsuarioData.data.id}}" disabled />
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput type="text" class="info-input" value="{{detalleUsuarioData.data.first_name}}" />
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput type="text" class="info-input" value="{{detalleUsuarioData.data.last_name}}" />
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput type="text" class="info-input" value="{{detalleUsuarioData.data.email}}" />
+        </mat-form-field>
+        <button class="mat-button" class="mat-button" mat-raised-button color="primary" (click)="editarUsuario()">
+          <mat-icon>cached</mat-icon>ACTUALIZAR
+        </button>
+
+      </form>
+    </div>
   </mat-card>
-</mat-grid-tile>
+  <mat-card class="mat-card-post">
+    <h3 class="post-card__title" style="text-align:center">
+      <mat-icon>edit</mat-icon>Entradas Disponibles
+    </h3>
+    <table style="background-color:rgb(228, 228, 228); border:1px solid ;border-color:rgb(221, 221, 221); overflow:auto;">
 
-<mat-grid-tile>
-<mat-card class="mat-card-post">
-  <h3> <mat-icon>edit</mat-icon>Entradas Disponibles</h3>
-  <table style="background-color:rgb(255, 255, 255); border-color:rgb(0, 0, 0); overflow:auto;">
-   
-    <tr>
-      <th class="table-title">Detalle de las entradas</th>
-    </tr>
-  
-  <tbody>
-    <tr *ngFor="let item of postData">
-      <td>
-        {{ item.title }}
-      </td>
-      <td class="td-body">
-        {{ item.body }}
-      </td>
-    </tr>
-  </tbody>
-  </table>
-</mat-card>
-  
-</mat-grid-tile>
-</mat-grid-list>
+      <tr style="background-color:gray; color:white">
+        <th>Titulo</th>
+        <th>Descripcion</th>
+        <th>Acciones</th>
+      </tr>
+
+      <tr *ngFor="let item of postData" style="border: 1px solid; border-color: rgb(0, 0, 0)">
+        <td>
+          {{ item.title }}
+        </td>
+        <td>
+          {{ item.body }}
+        </td>
+        <td>
+          <mat-icon class="delete-icon" style="cursor: pointer;" (click)=borrarEntrada(item.id)>delete</mat-icon>
+        </td>
+      </tr>
+
+    </table>
+  </mat-card>
+</main>

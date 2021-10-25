@@ -1,7 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
-import { UsuarioRequest,UsuarioResponse} from 'src/app/shared/models/usuario.interface';
+import {
+  UsuarioRequest,
+  UsuarioResponse,
+} from 'src/app/shared/models/usuario.interface';
 import { environment } from 'src/environments/environment';
 import { catchError, map } from 'rxjs/operators';
 
@@ -12,17 +15,14 @@ export class LoginService {
   isLogged: any;
   constructor(private http: HttpClient) {}
 
-  login(loginData: UsuarioRequest): Observable<UsuarioResponse> {
+  login(loginData: UsuarioRequest): Observable<any> {
     return this.http
-      .post<UsuarioResponse>(`${environment.API_URL_LOGIN}/api/login`, loginData /* {
-        email: loginData.nombreUsuario,
-        password: loginData.passwordUsuario,
-      } */)
+      .post<any>(`${environment.API_URL_LOGIN}/api/login`, loginData)
       .pipe(
-        map((res: UsuarioResponse) => {
+        map((res: any) => {
           this.salvartoken(res.token);
-        }),
-        catchError((err) => this.manejoErrores(err))
+          return res;
+        })
       );
   }
 
@@ -30,7 +30,7 @@ export class LoginService {
     localStorage.removeItem('token');
   }
 
-  private salvartoken(token: string): void {
+  private salvartoken(token: string) {
     localStorage.setItem('token', token);
   }
 

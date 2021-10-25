@@ -5,18 +5,12 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class LoginGuard implements CanLoad, CanActivate {
+export class LoginGuard implements  CanActivate {
 
    canActivate(
     route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean  {
+    state: RouterStateSnapshot):  boolean  {
     return true;
   } 
 
-  canLoad(
-    route: Route,
-    segments: UrlSegment[]): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      console.log()
-    return false;
-  }
 }

@@ -16,6 +16,7 @@ export class MainHomeComponent implements AfterViewInit {
 
   pagina: number = 1;
   dato: any;
+  other_content:any;
 
   displayedColumns: string[] = [
     'id',
@@ -32,6 +33,7 @@ export class MainHomeComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     this.getUsuarios();
+    console.log(this.pagina);
   }
 
   public getUsuarios() {
@@ -48,12 +50,15 @@ export class MainHomeComponent implements AfterViewInit {
   }
 
   anterior() {
+    debugger;
+    console.log(this.pagina);
     this.pagina = this.pagina - 1;
-
     this.getUsuarios();
   }
 
   siguiente() {
+    debugger;
+    console.log(this.pagina);
     this.pagina = this.pagina + 1;
     this.getUsuarios();
   }
