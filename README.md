@@ -1,4 +1,26 @@
-# AdmUsuarios
+# Ejercicio de Administracion de usuarios - UMVEL 
+
+########   
+Para descargar dependencias de manera local utilizar:
+ o npm install
+################################
+
+##  ACCESO A LA APLICACION #####
+
+Para tener acceso a la pantalla de home es necesario utilizar las siguientes credenciales: 
+ email: eve.holt@reqres.in
+ password": cityslicka
+
+
+ ## ACCESO PUBLICO A LA APLICACIÓN ###
+
+ Para efectos prácticos, pueden ingresar a la aplicación desde la siguiente URL: 
+
+ https://admin-usuarios-b0f46.web.app/login
+
+
+ ################################################################################################
+  
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.10.
 
