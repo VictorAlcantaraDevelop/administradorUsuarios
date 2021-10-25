@@ -38,4 +38,10 @@ post(id:number):Observable<any> {
  }
 
 
+actualizarUsuario(id: number,email:string,first_name:string,last_name:string):Observable<any> {
+  let direccion = `${environment.API_URL_LOGIN}/api/users/`  + id  ;
+  const body = { email,first_name,last_name };
+  return this.http.put<any>(direccion,body)
+}
+
 }

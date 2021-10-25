@@ -1,3 +1,4 @@
+
 <p>
   <mat-toolbar>
     <h1 class="title-main">Administrador de usuarios</h1>
@@ -7,63 +8,73 @@
 <main class="container">
 
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z1">
-    
+
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef>
         <mat-icon class="icon-title">account_circle</mat-icon>
         id
-        
       </th>
-    <td mat-cell *matCellDef="let element">{{ element.id }}</td>
-  </ng-container>
-  
-  <ng-container matColumnDef="email">
-    <th mat-header-cell *matHeaderCellDef>
-      <mat-icon class="icon-title">email</mat-icon>
-      Correo Electrónico
-     
-    </th>
-    <td mat-cell *matCellDef="let element">{{ element.email }}</td>
-  </ng-container>
-  
-  <ng-container matColumnDef="first_name">
-    <th mat-header-cell *matHeaderCellDef>
-      <mat-icon class="icon-title">face</mat-icon>
-      Nombre</th>
-    <td mat-cell *matCellDef="let element">{{ element.first_name }}</td>
-  </ng-container>
-  
-  <ng-container matColumnDef="last_name">
-    <th mat-header-cell *matHeaderCellDef>
-      <mat-icon class="icon-title">face</mat-icon>
-      Apellido</th>
-    <td mat-cell *matCellDef="let element">{{ element.last_name }}</td>
-  </ng-container>
-  
-  <ng-container matColumnDef="avatar">
-    <th mat-header-cell *matHeaderCellDef>
-      <mat-icon class="icon-title"></mat-icon>
-      </th>
-    <td mat-cell *matCellDef="let element"><img class="avatar-image"src="{{element.avatar}}" alt="{{element.avatar}}" /></td>
-  </ng-container>
+      <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+    </ng-container>
 
-    
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef>
+        <mat-icon class="icon-title">email</mat-icon>
+        Correo Electrónico
+      </th>
+      <td mat-cell *matCellDef="let element">{{ element.email }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="first_name">
+      <th mat-header-cell *matHeaderCellDef>
+        <mat-icon class="icon-title">face</mat-icon>
+        Nombre
+      </th>
+      <td mat-cell *matCellDef="let element">{{ element.first_name }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="last_name">
+      <th mat-header-cell *matHeaderCellDef>
+        <mat-icon class="icon-title">face</mat-icon>
+        Apellido
+      </th>
+      <td mat-cell *matCellDef="let element">{{ element.last_name }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="avatar">
+      <th mat-header-cell *matHeaderCellDef>
+        <mat-icon class="icon-title"></mat-icon>
+      </th>
+      <td mat-cell *matCellDef="let element"><img class="avatar-image" src="{{element.avatar}}"
+          alt="{{element.avatar}}" /></td>
+    </ng-container>
+
     <ng-container matColumnDef="acciones">
       <th mat-header-cell *matHeaderCellDef></th>
       <td mat-cell *matCellDef="let element" class="row-button">
         <button mat-raised-button color="primary" (click)='openSideNav(element)'>
-          <mat-icon >remove_red_eye</mat-icon>
-          VER DETALLE</button>
-      </td> 
+          <mat-icon>remove_red_eye</mat-icon>
+          VER DETALLE
+        </button>
+      </td>
     </ng-container>
- 
-  
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-</table>
-<div class= "paginador">
-  
-  <button class="mat-button" mat-raised-button color="primary" (click)="anterior()">Anterior</button>
-  <button class="mat-button" mat-raised-button color="primary" (click)="siguiente()">Siguiente</button>
-</div>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+  <div class="paginador">
+    <div class="paginador-siguiente">
+      <button *ngIf="this.pagina == 1" class="mat-button" mat-raised-button color="primary"
+        (click)="siguiente()">Siguiente</button>
+
+      <div class="paginador-anterior">
+        <button *ngIf="this.pagina == 2" class="mat-button" mat-raised-button color="primary"
+          (click)="anterior()">Anterior</button>
+
+      </div>
+
+    </div>
+
+  </div>
+
 </main>

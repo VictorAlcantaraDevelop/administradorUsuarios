@@ -52,6 +52,7 @@ export class LoginComponent implements OnInit {
   }
 
   iniciarSesion(loginForm: any) {
+ 
     const Toast = Swal.mixin({
       toast: true,
       position: 'top-end',
@@ -64,20 +65,22 @@ export class LoginComponent implements OnInit {
       },
     });
     this.loginService.login(loginForm).subscribe((res) => {
+
       console.log(res);
-      if (!res) {
+      if (res) {
         Toast.fire({
           icon: 'success',
           title: 'Inicio de Sesión Correcto',
         });
 
         this.router.navigate(['home']);
-      } else {
-        Toast.fire({
-          icon: 'error',
-          title: 'El usuario no existe',
-        });
-      }
+      } 
+      
+    },error => {
+      Toast.fire({
+        icon: 'error',
+        title: 'El usuario no existe',
+      });
     });
   }
 }
